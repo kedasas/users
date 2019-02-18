@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div>
+            <button type="submit" class="btn btn-primary mt-3">Create</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

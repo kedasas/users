@@ -1,0 +1,22 @@
+/* Default styles */
+html, body {
+    margin:0px;
+    padding:0px;
+    height:100%;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 3px!important;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.chk-group-list input[type='checkbox']{
+    margin-left: 8px;
+}

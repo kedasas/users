@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groups{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if groups %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Group name</th>
+                    <th>Group users</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for group in groups %}
+                    <tr>
+                    <td>
+                        {{ group.name }}
+                    </td>
+                    <td>
+                        {% for user in group.users %}
+                            {{ user.name }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="/groups/edit/{{ group.id }}" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger delete-user-group"
+                               data-url="{{ path('delete_group',{id: group.id}) }}" >Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h3>There is no groups in this category</h3>
+        {% endif %}
+    </div>
+{% endblock %}
+
